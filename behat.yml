@@ -1,0 +1,11 @@
+default:
+    suites:
+        default:
+            contexts:
+#                - FeatureContext
+        calculator:
+            paths: [ %paths.base%/features/Calculator ]
+            contexts: [ CalculatorFeatureContext ]
+        tictactoe:
+            paths: [ %paths.base%/features/Tictactoe ]
+            contexts: [ TictactoeFeatureContext ]

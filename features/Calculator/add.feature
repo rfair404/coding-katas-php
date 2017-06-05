@@ -1,7 +1,7 @@
 Feature: add
   In order to add numbers
   As a Calculator user
-  I need to be able to add a set of integers
+  I need to be able to add a set of numbers
 
   Scenario: Display the sum of two provided numbers
     Given I have the number 50 and the number 25

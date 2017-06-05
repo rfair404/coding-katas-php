@@ -10,8 +10,8 @@ use CodingKatasPHP\Calculator;
 class CalculatorFeatureContext implements Context
 {
 	private $calculator;
-	private $numbers;
-	private $a, $b, $c, $result = 0;
+	private $numbers = array();
+	private $result = 0;
 
     /**
      * Initializes context.
@@ -32,8 +32,6 @@ class CalculatorFeatureContext implements Context
 	public function iHaveTheNumberAndTheNumber($a, $b) {
 		$this->numbers[] = $a;
 		$this->numbers[] = $b;
-//		$this->a = $a;
-//		$this->b = $b;
 	}
 
 	/**
@@ -42,7 +40,6 @@ class CalculatorFeatureContext implements Context
 	public function iHaveAThirdNumberOf($c)
 	{
 		$this->numbers[] = $c;
-//		$this->c = $c;
 	}
 
 

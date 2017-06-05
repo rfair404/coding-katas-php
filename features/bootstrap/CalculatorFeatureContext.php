@@ -85,5 +85,13 @@ class CalculatorFeatureContext implements Context
 		}
 	}
 
+	/**
+	 * @Then Shit should be shit
+	 */
+	public function shitShouldBeShit()
+	{
+		throw new PendingException();
+	}
+
 
 }

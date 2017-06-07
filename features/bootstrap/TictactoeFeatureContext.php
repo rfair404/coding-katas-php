@@ -21,7 +21,7 @@ class TictactoeFeatureContext implements Context
 	 */
 	public function __construct()
 	{
-		$this->ttt = new CodingKatasPHP\Tictactoe();
+		$this->ttt = new CodingKatasPHP\Tictactoe;
 	}
 
 	/**

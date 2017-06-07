@@ -42,11 +42,20 @@ class CalculatorFeatureContext implements Context
 		$this->numbers[] = $c;
 	}
 
+	/**
+	 * @Given /^I have the numbers *$/
+	 */
+	public function iHaveTheNumbersAnd($arg1, $arg2)
+	{
+		throw new Exception( "Array is $arg1");
+	}
 
 	/**
-	 * @When I add them together
+
+	/**
+	 * @When I add them
 	 */
-	public function iAddThemTogether()
+	public function iAddThem()
 	{
 		$this->result = $this->calculator->add($this->numbers);
 	}

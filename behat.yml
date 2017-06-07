@@ -9,3 +9,6 @@ default:
         tictactoe:
             paths: [ %paths.base%/features/Tictactoe ]
             contexts: [ TictactoeFeatureContext ]
+        biography:
+            paths: [ %paths.base%/features/Biography ]
+            contexts: [ BiographyFeatureContext ]

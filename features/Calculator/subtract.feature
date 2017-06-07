@@ -13,3 +13,4 @@ Feature: subtract
     And I have a third number of 25
     When I subtract them
     Then I should get 50
+

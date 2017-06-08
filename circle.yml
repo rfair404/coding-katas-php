@@ -5,7 +5,7 @@ machine:
     America/Los_Angeles # Set the timezone
 
   php:
-    version: 5.4.5
+    version: 7.0.0
 
   hosts:
     circlehost: 127.0.0.1

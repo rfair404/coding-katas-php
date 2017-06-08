@@ -4,8 +4,10 @@ machine:
   timezone:
     America/Los_Angeles # Set the timezone
 
+  pre:
+    - sudo apt-get update; USE_PRECOMPILE=true sudo -E circleci-install php 7.1.0
   php:
-    version: 7.0.0
+    version: 7.1.0
 
   hosts:
     circlehost: 127.0.0.1

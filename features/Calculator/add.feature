@@ -28,9 +28,3 @@ Feature: add
     Given I have the numbers 3, 6, 9, 12
     When I add them
     Then I should get 30
-
-#
-#  Scenario: Display the sum of three provided numbers
-#    Given I have the number 50 and the number 25
-#    And I have a third number of 25
-#    Then Shit should be shit

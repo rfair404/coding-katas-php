@@ -33,4 +33,13 @@ class Calculator{
 		}
 		return $value;
 	}
+
+	public static function average(){
+		$args = func_get_args();
+
+		$sum = ( is_array( $args[0] ) ) ? array_sum( $args[0] ) : array_sum( $args );
+		$count = ( is_array( $args[0] ) ) ? count( $args[0] ) : count( $args );
+
+		return $sum / $count;
+	}
 }

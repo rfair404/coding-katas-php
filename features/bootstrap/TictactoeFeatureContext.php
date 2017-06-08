@@ -88,8 +88,9 @@ class TictactoeFeatureContext implements Context
 	 */
 	public function turnShouldBe($turn)
 	{
-		if( $this->ttt->game->get_turn() !== intval($turn) )
+		if( $this->ttt->game->get_turn() !== intval($turn) ) {
 			throw new Exception( "Turn should equal $turn, instead got" . $this->ttt->game->get_turn() );
+		}
 	}
 
 	/**
@@ -97,8 +98,9 @@ class TictactoeFeatureContext implements Context
 	 */
 	public function stateShouldIncludePosition($arg1)
 	{
-		if( ! in_array( 0, $this->ttt->game->get_state() ) )
+		if( ! in_array( 0, $this->ttt->game->get_state() ) ) {
 			throw new Exception('state should include correct position');
+		}
 	}
 
 	/**
@@ -109,8 +111,9 @@ class TictactoeFeatureContext implements Context
 		$state = $this->ttt->game->get_state();
 		$position = intval( $position );
 
-		if( ! isset( $state[$position] ) || $state[$position] !== $player )
+		if( ! isset( $state[$position] ) || $state[$position] !== $player ) {
 			throw new Exception('state should include correct position');
+		}
 	}
 
 	/**
@@ -118,23 +121,73 @@ class TictactoeFeatureContext implements Context
 	 */
 	public function winnerShouldBe($expected_winner)
 	{
-		$winner = $this->ttt->game->get_winner();
-		$expected_winner = ( 0 ===  intval( $expected_winner ) ) ? intval( $expected_winner ) : $expected_winner;
+		if( "false" === $expected_winner ){
+			// expecting "no winner" convert expected to bool
+			$expected_winner = false;
+		}
 
-		if( $expected_winner !== $winner ) {
+		$winner = $this->ttt->game->get_winner();
+
+		if( $expected_winner !==  $winner ){
 			throw new Exception( "Expected winner to be $expected_winner - got $winner instead.");
+		}
+
+	}
+
+	/**
+	 * @Then A new game board should appear
+	 */
+	public function aNewGameBoardShouldAppear()
+	{
+		$expected  = "__|__|__\n";
+		$expected .= "__|__|__\n";
+		$expected .= "  |  |  \n";
+
+		$board = $this->ttt->game->get_board();
+
+		if( $expected !== $board ){
+			throw new Exception("The board was not a new board.");
 		}
 	}
 
 	/**
-	 * @Given /^(\S+) sucks at ttt$/
+	 * @Given I mark space :position for :player
 	 */
-	public function sucksAtTtt($who)
+	public function iMarkSpace($position, $player)
 	{
-		throw new Exception( "$who does indeed suck at Tictactoe");
+		$this->ttt->game->mark_position( $position );
+
 	}
 
+	/**
+	 * @Then The game board should have space :space marked :mark
+	 */
+	public function theGameBoardShouldHaveSpaceMarked($space, $mark)
+	{
+		$expected  = "{$mark}_|__|__\n";
+		$expected .= "__|__|__\n";
+		$expected .= "  |  |  \n";
 
+		$board = $this->ttt->game->get_board();
 
+		if( $expected !== $board ){
+			throw new Exception("Board is wrong.");
+		}
+	}
 
+	/**
+	 * @Then The game board should be:
+	 */
+	public function theGameBoardShouldBe(PyStringNode $string)
+	{
+		$board = $this->ttt->game->get_board();
+		$expected = $string->getRaw();
+
+		// Remove the period from the end of the multi-line
+		$expected = str_replace( '.', '', $expected );
+
+		if ( $expected !== $board ) {
+			throw new Exception('Board did not align with expectations.');
+		}
+	}
 }

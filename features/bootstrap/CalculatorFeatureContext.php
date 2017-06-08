@@ -85,6 +85,15 @@ class CalculatorFeatureContext implements Context
 	}
 
 	/**
+	 * @When I average them
+	 */
+	public function iAverageThem()
+	{
+		$this->result = $this->calculator->average($this->numbers);
+	}
+
+
+	/**
 	 * @Then I should get :expected
 	 */
 	public function iShouldGet($expected)
@@ -103,7 +112,5 @@ class CalculatorFeatureContext implements Context
 		$numbers = explode(', ', $numbers_string);
 		$this->numbers = $numbers;
 	}
-
-
 
 }

@@ -1,9 +1,14 @@
 default:
     suites:
         default:
+            paths:
+                - %paths.base%/features/Calculator
+                - %paths.base%/features/Tictactoe
+                - %paths.base%/features/Biography
             contexts:
-              paths: [ %paths.base%/features ]
-              contexts: [ CalculatorFeatureContext ]
+                - CalculatorFeatureContext
+                - TictactoeFeatureContext
+                - BiographyFeatureContext
         calculator:
             paths: [ %paths.base%/features/Calculator ]
             contexts: [ CalculatorFeatureContext ]

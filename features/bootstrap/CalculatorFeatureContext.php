@@ -94,13 +94,16 @@ class CalculatorFeatureContext implements Context
 		}
 	}
 
+
 	/**
-	 * @Then Shit should be shit
+	 * @Given /^I have the numbers (.+?)$/
 	 */
-	public function shitShouldBeShit()
+	public function iHaveTheNumbers($numbers_string)
 	{
-		throw new PendingException();
+		$numbers = explode(', ', $numbers_string);
+		$this->numbers = $numbers;
 	}
+
 
 
 }

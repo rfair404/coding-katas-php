@@ -1,0 +1,17 @@
+## Customize the test machine
+machine:
+
+  timezone:
+    America/Los_Angeles # Set the timezone
+
+  php:
+    version: 5.4.5
+
+  hosts:
+    circlehost: 127.0.0.1
+    dev.mycompany.com: 127.0.0.1
+
+  test:
+    override:
+      - bin/phpunit # use PHPunit for testing
+      - bin/behat # use Behat for Testing

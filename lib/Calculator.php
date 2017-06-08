@@ -1,6 +1,7 @@
 <?php
 namespace CodingKatasPHP;
 class Calculator{
+
 	public static function add(){
 		$args = func_get_args();
 		return ( is_array( $args[0] ) ) ? array_sum( $args[0] ) : array_sum( $args );

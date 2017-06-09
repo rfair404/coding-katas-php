@@ -17,8 +17,6 @@ Feature: add
     Given I have the number 7399 and the number 2601
     When I add them
     Then I should get 10000
-    Scenario: foo
-      Given foo is foo
 
   Scenario: Display the sum of three provided numbers
     Given I have the number 50 and the number 25

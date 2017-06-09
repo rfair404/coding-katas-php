@@ -113,4 +113,13 @@ class CalculatorFeatureContext implements Context
 		$this->numbers = $numbers;
 	}
 
+	/**
+	 * @Given foo is foo
+	 */
+	public function fooIsFoo()
+	{
+		throw new PendingException();
+	}
+
+
 }

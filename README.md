@@ -5,3 +5,4 @@ A series of coding excercises written in php
 Fork this repository
 Clone your fork to your local machine or online editor
 Submit a Pull Request that adds your name to the Contributors.md file
+composer install
